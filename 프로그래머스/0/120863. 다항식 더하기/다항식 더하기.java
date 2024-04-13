@@ -12,22 +12,22 @@ class Solution {
         boolean chk = false;
         for(int i=0;i<part.length;i++){
             //x의 개수 구하기
-            if(part[i].contains("x")){
+            if(part[i].contains("x")){//x인 경우
                 chk=false;
                 String val = "";
-                if((int)part[i].charAt(0)>=48 && (int)part[i].charAt(0)<=57 ){
-                    if(part[i].length()>2){
-                        val+=part[i].charAt(0);
+                if((int)part[i].charAt(0)>=48 && (int)part[i].charAt(0)<=57 ){//숫자체크
+                    if(part[i].length()>2){//두자리수이상의 숫자
+                        val+=part[i].charAt(0);//String 변수에 넣어서 int형으로변환후 넣기
                         val+=part[i].charAt(1);
                         count+=Integer.parseInt(val);
                         chk=true;
-                    }else{
-                    count+=Integer.parseInt(String.valueOf(part[i].charAt(0)));
+                    }else{//한자리수
+                    count+=Integer.parseInt(String.valueOf(part[i].charAt(0)));//바로넣기
                     chk=true;
                     }
                 }
 
-                if(!chk){
+                if(!chk){//x인경우 1x 방지
                     count++;
                 }
             }else{//숫자 찾기
