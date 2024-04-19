@@ -16,7 +16,7 @@ class Solution {
             answer[0] = -1;
             return answer;
         }
-        
+
         for(int i=0;i<arr.length;i++){
             if(arr[i]%divisor==0){
                 answer[cnt]= arr[i];
