@@ -3,6 +3,7 @@ class Solution {
         int answer = 0;
         Long num1 = (long)num;
         while(num1!=1){
+            System.out.println(num1);
             if(num1%2==0){
                 num1=num1/2;
             }else{
