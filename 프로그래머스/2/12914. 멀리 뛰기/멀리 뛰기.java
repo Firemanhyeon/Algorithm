@@ -5,11 +5,9 @@ class Solution {
         long b=1;
         long result=0;
         for(int i=1;i<=n;i++){
-            answer = (a+b);
+            answer = (a+b)%1234567;
             a=b;
-            b=answer%1234567;
-            System.out.println(answer);
-            
+            b=answer;// 1
         }
         return answer%1234567;
     }
