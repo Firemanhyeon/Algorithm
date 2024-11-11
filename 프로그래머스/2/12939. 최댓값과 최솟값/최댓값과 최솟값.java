@@ -1,16 +1,19 @@
+import java.util.*;
+
 class Solution {
     public String solution(String s) {
         String answer = "";
         String[] arr = s.split(" ");
-        int max=Integer.MIN_VALUE;
-        int min=Integer.MAX_VALUE;
+        int[] arr2 = new int[arr.length];
         for(int i=0;i<arr.length;i++){
-            int cnt = Integer.parseInt(arr[i]);
-            max = Math.max(max , cnt);
-            min = Math.min(min , cnt);
+            arr2[i]= Integer.parseInt(arr[i]);
         }
-        answer = min+" "+max;
-        
+        Arrays.sort(arr2);
+        System.out.println(arr2[0]);
+        System.out.println(arr2[arr2.length-1]);
+        answer+=arr2[0];
+        answer+=" ";
+        answer+=arr2[arr2.length-1];
         return answer;
     }
 }
