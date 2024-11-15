@@ -1,30 +1,28 @@
 import java.util.*;
+
 class Solution {
     public int[] solution(String s) {
         int[] answer = new int[2];
-        
-        int lng=0;//0제거후 길이
-        String change=s;//이진법 변환
-        int cnt=0;//0제거한 숫자
-        int count=0;
-        //0제거   
-        while(!change.equals("1")){
-            List<Character>list = new ArrayList<>();
-            for(int i=0;i<change.length();i++){
-                if(change.charAt(i)!='0'){
-                    list.add(change.charAt(i));
-                }else{
+        StringBuilder str = new StringBuilder(); 
+        List<Integer> list = new ArrayList<>();
+        int cnt =0;
+        int num=0;
+        while(true){
+            str = new StringBuilder();
+            for(int i=0;i<s.length();i++){
+                if(s.charAt(i)=='1'){
+                    str.append(s.charAt(i));
+                }else if(s.charAt(i)=='0'){
                     cnt++;
                 }
             }
-            //0제거후 길이
-            lng = list.size();
-
-            //이진변환
-            change = Integer.toBinaryString(lng);
-            count++;
+            num++;
+            s=Integer.toBinaryString(str.toString().length());
+            if(s.equals("1")){
+                break;
+            }
         }
-        answer[0]=count;
+        answer[0]=num;
         answer[1]=cnt;
         return answer;
     }
