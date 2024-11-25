@@ -1,26 +1,29 @@
-class Solution {
-     // 최대공약수를 구하는 함수
-    public static int gcd(int a, int b) {
-        if (b == 0) {
-            return a;
-        }
-        return gcd(b, a % b);
-    }
+import java.util.*;
 
-    // 최소공배수를 구하는 함수
-    public static int lcm(int a, int b) {
-        return Math.abs(a * b) / gcd(a, b);
-    }
+class Solution {
     public int solution(int[] arr) {
-        int answer = 0;
-        int a = arr[0];
-        int cnt=0;
-        for(int i=0;i<arr.length;i++){
-            cnt = lcm(a,arr[i]);
-            a=cnt;
-            System.out.println(cnt);
+        for(int i=0;i<arr.length-1;i++){
+            int num = gcd(arr[i],arr[i+1]);//n과 n+1의 최대공약수
+            int num2 = lcm(num , arr[i],arr[i+1]);
+            arr[i+1]= num2;
         }
-        answer=cnt;
-        return answer;
+        
+        return arr[arr.length-1];
+    }
+    
+    //최대공약수 함수
+    public int gcd(int a , int b){
+        int c=1;
+        while(a%b!=0){
+            c=a%b;
+            a=b;
+            b=c;
+        }
+        
+        return b;
+    }
+    //최소공배수
+    public int lcm(int gcd , int a , int b){
+        return a*b/gcd;
     }
 }
