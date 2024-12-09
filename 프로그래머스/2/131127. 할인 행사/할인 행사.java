@@ -35,9 +35,7 @@ class Solution {
                     break;
                 }
             }
-            if(chk){
-                answer++;
-            }
+            answer+= chk ? 1 : 0;
         }
         return answer;
     }
